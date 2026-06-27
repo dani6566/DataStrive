@@ -3,7 +3,7 @@
 // 1. SIMULATED LIVE ML METRICS (Changes values inside the UI panels dynamically)
 document.addEventListener("DOMContentLoaded", () => {
     const accuracyElement = document.querySelector(".accuracy-val");
-    
+
     // Simulate training model optimization fluctuations 
     setInterval(() => {
         if (accuracyElement) {
@@ -38,14 +38,14 @@ dashButtons.forEach(button => {
         // Remove active layouts from other selection tabs
         dashButtons.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
-        
+
         // Grab the chosen dataset identity target
         const selectedMetric = button.getAttribute("data-metric");
         const currentData = mockData[selectedMetric];
-        
+
         // Update Title text UI
         metricTitle.textContent = currentData.title;
-        
+
         // Transform the dynamic Graph Bars heights matching the configuration values
         chartBars.forEach((bar, index) => {
             const targetHeight = currentData.heights[index];
@@ -58,15 +58,16 @@ dashButtons.forEach(button => {
 // 3. SECURE FORM SIMULATION WITH FEEDBACK UX
 const contactForm = document.getElementById("ml-form");
 const feedbackText = document.getElementById("form-feedback");
+console.log(feedbackText);
 
 if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
         e.preventDefault(); // Stop standard browser reloading sequence
-        
+
         const userEmail = document.getElementById("form-email").value;
         feedbackText.textContent = "Processing network pipeline keys...";
         feedbackText.className = "form-feedback";
-        
+
         // Create an artificial artificial timeout waiting layout
         setTimeout(() => {
             feedbackText.textContent = `Success! Sandbox keys dispatched securely to ${userEmail}`;
